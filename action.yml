@@ -1,15 +1,27 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Dir2uf2 Action'
+description: 'Action for generating .uf2 files'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  environment-file:
+    description: 'Environment file'
     required: true
-    default: 'World'
+    default: 'enviro.txt'
+  file-name:
+    description: 'Name of the file to be generated without the extension'
+    required: true
+    default: 'output'
+  src-dir:
+    description: 'Path for the source directory'
+    required: false
+    default: '.'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  uf2-file:
+    description: 'The generated .uf2 file'
+  bin-file:
+    description: 'The generated .bin file'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.environment-file }}
+    - ${{ inputs.file-name }}
+    - ${{ inputs.src-dir }}

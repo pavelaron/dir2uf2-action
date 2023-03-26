@@ -1,6 +1,12 @@
 # Container image that runs your code
 FROM alpine:3.10
 
+# Install littlefs-python using pip
+RUN pip install littlefs
+
+# Install dir2uf2 from repository
+RUN git clone https://github.com/dir2uf2/dir2uf2.git
+
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
 
