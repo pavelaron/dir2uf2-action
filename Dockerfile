@@ -4,8 +4,8 @@ FROM python:3.11-slim-bullseye
 # Install littlefs-python using pip3
 RUN pip3 install littlefs-python
 
-# Install Git
-RUN apt-get update && apt-get install -y git
+# Install Git and curl
+RUN apt-get update && apt-get install -y git curl
 
 # Get dir2uf2
 RUN zipball=$(curl -X GET https://api.github.com/repos/Gadgetoid/dir2uf2/releases/latest | python3 -c "import sys,json; print json.load(sys.stdin)['zipball_url']") \
