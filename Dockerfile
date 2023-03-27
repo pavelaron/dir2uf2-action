@@ -2,10 +2,10 @@
 FROM python:3.11-slim-bullseye
 
 # Install littlefs-python using pip3
-RUN pip3 install littlefs-python
+RUN pip3 install littlefs-python --root-user-action=ignore
 
-# Install Git and curl
-RUN apt-get update && apt-get install -y git curl
+# Install Git, unzip and curl
+RUN apt-get update && apt-get install -y git unzip curl
 
 # Get dir2uf2
 RUN curl -L -o dir2uf2.zip https://api.github.com/repos/Gadgetoid/dir2uf2/zipball
