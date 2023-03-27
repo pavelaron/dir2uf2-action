@@ -9,7 +9,8 @@ RUN apt-get update && apt-get install -y git unzip curl
 
 # Get dir2uf2
 RUN curl -L -o dir2uf2.zip https://api.github.com/repos/Gadgetoid/dir2uf2/zipball
-RUN unzip dir2uf2.zip -d /
+RUN unzip dir2uf2.zip -d .
+RUN mv $(ls /dir2uf2 | grep "^Gadgetoid-dir2uf2-")/dir2uf2 /usr/local/bin/dir2uf2
 
 # Copies your code file from your action repository to the filesystem path `/` of the container
 COPY entrypoint.sh /entrypoint.sh
