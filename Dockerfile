@@ -1,5 +1,5 @@
 # Container image that runs your code
-FROM alpine:3.10
+FROM python:3.11-slim-bullseye
 
 # Install littlefs-python using pip
 RUN pip install littlefs

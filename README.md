@@ -29,7 +29,7 @@ The generated .bin file.
 ## Example usage
 
 ```yaml
-uses: actions/dir2uf2-action@main
+uses: pavelaron/dir2uf2-action@main
 with:
   environment-file: 'environment.txt'
   file-name: 'app'
